@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 /*Rules
@@ -28,18 +29,20 @@ public class Main {
     //IF TWO ELEMENTS ON THE LEADERBOARD ARE THE SAME THEY HAVE THE SAME RANKING
     //ALGORITHM THAT CALCULATES THE N OF POSITIONS IN THE RANKING
 
+        int FnumberOfRanks = numberOfPlayers; //number of elements  in the leader board
 
-        int count = 0; //number of elements  in the leader board
+      Arrays.sort(ScoresOfPlayers);
 
-        for (int i = 0; i < numberOfPlayers-1; i++) {
-            if (ScoresOfPlayers[i] != ScoresOfPlayers[i+1]) {
-                count++;
-            }else {
-                count++;
-                i=i+2;
-            }
+      for (int i = 0; i<ScoresOfPlayers.length;i++){
 
-        }
+          try {
+              if (ScoresOfPlayers[i] == ScoresOfPlayers[i + 1]) {
+                  FnumberOfRanks--;
+              }
+          }catch (Exception e){
+              break;
+          }
+      }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,29 +52,29 @@ public class Main {
 
         int AliceNumberOfPlays = scan.nextInt();
 
-        int numberOfElementsAlice = scan.nextInt(); //the number of elements from alice
-        int AliceScores[] = new int[numberOfElementsAlice];
+
+        int AliceScores[] = new int[AliceNumberOfPlays];
 
 
         //positioning each element entered into an array
-        for (int i = 0; i < numberOfPlayers-1; i++) {
+        for (int i = 0; i < AliceNumberOfPlays; i++) {
             AliceScores[i] = scan.nextInt();
         }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //OUTPUT
 
 
 
-        for (int c = 0 ; c<count;c++){
+        for (int c = 0 ; c<FnumberOfRanks;c++){
 
-            System.out.println(Operation(count,AliceScores,ScoresOfPlayers,c));
+            System.out.println(Operation(FnumberOfRanks,AliceScores,ScoresOfPlayers,c));
         }
 
 
 
     }
-
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
