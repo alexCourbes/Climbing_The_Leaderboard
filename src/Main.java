@@ -1,3 +1,4 @@
+import java.io.PipedOutputStream;
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -31,7 +32,7 @@ public class Main {
 
         int FnumberOfRanks = numberOfPlayers; //number of elements  in the leader board
 
-      Arrays.sort(ScoresOfPlayers);
+
 
       for (int i = 0; i<ScoresOfPlayers.length;i++){
 
@@ -67,9 +68,9 @@ public class Main {
 
 
 
-        for (int c = 0 ; c<FnumberOfRanks;c++){
 
-            System.out.println(Operation(FnumberOfRanks,AliceScores,ScoresOfPlayers,c));
+        for (int g = 0; g<AliceScores.length;g++) {
+            System.out.println(Operation(FnumberOfRanks, AliceScores, ScoresOfPlayers,g));
         }
 
 
@@ -81,15 +82,28 @@ public class Main {
     //data handling/result calculation method
 
 
-        public static int Operation (int Count, int AliceScores[], int Scores[], int g ){
 
-        int Position = Count;
+        public static int Operation (int FnumberofRanks, int[] AliceScores, int[] Scores,int g){
 
-        for (int i = 0; i< Scores.length; i++){
+        int Position =  0;
 
-            if (AliceScores[g] > Scores [i]) {
-                Position--;
-            } }
+        for (int i = 0; i< Scores.length; i++) {
+
+                if (AliceScores[g] > Scores[i]) {
+
+                    Position = i-1;
+                    break;
+                }else{
+                    Position = FnumberofRanks+1 ;
+                }
+
+
+        }
+        if (Position <0){
+            Position=1;
+        }
+
+
             return Position;
         }
 }
