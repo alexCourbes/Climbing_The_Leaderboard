@@ -1,5 +1,5 @@
 # Climbing_The_Leaderboard
 
-URL:https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
-difficulty: Medium
-Branch: Algorithms -> Implementation
+<b>URL:</b> https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem </br>
+<b>difficulty: </b>Medium </br>
+<b>Branch: </b>Algorithms -> Implementation </br>
